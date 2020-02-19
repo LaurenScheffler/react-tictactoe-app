@@ -2,14 +2,31 @@ import React from 'react';
 import './App.css';
 import Game from './components/TicTacToe/index.js';
 import Login from './components/login/index.js';
-function Register() {
-  return <div></div>
+
+class Register extends React.Component {
+  clickHandler() {
+    console.log("User is registering");
+    console.log(this);
+    for(const user of this.props.users){
+      if(this.refs.username.value === user.username && 
+      this.refs.password.value === user.password)
+        this.props.Register();
+    }
+  }
+  render() {
+  return (
+    <div>
+    <input ref="username" type="text"/>
+    <input ref="password" type="text"/>
+    </div>
+  )
+}
 }
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {loggedIn:false,
-    users:[{username:"test",password:"test"}]
+    users:[{username:"test",password:"test"},{username:" ", password:" "}]
     }
   }
   logInUser(loggedInStatus) {

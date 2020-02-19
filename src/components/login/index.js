@@ -15,6 +15,7 @@ class Login extends React.Component {
       <input ref="username" type="text"/>
       <input ref="password" type="text"/>
       <input type="button" value="Login" onClick={() => this.clickHandler()} />
+      <input type="button" value="Register" onClick={() => this.clickHandler()} />
       </div>;
     }
   }
